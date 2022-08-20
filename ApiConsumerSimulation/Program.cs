@@ -8,7 +8,7 @@ var userInput = Console.ReadKey();
 try
 {
     double[]? parameters;
-    Shape shape;
+    IShape shape;
     switch (userInput.Key)
     {
         case ConsoleKey.D1:
@@ -25,7 +25,7 @@ try
             var triangle = new Triangle(parameters[0], parameters[1], parameters[2]);
             shape = triangle;
             Console.WriteLine("Площадь:" + shape.CalculateSquare());
-            Console.WriteLine("Теругольник прямоугольный?" + triangle.IsOrthogonal());
+            Console.WriteLine("Треугольник прямоугольный?" + triangle.IsOrthogonal());
             goto START_MENU;
             
         case ConsoleKey.D3:
