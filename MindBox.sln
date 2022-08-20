@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresLibrary", "FiguresLibrary\FiguresLibrary.csproj", "{3AECD717-BE83-4B36-9E06-F248ACC56AD1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiguresLibrary_AbstractClass", "FiguresLibrary_AbstractClass\FiguresLibrary_AbstractClass.csproj", "{3AECD717-BE83-4B36-9E06-F248ACC56AD1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Тестовое задание №1", "Тестовое задание №1", "{4415E7A1-F801-4540-ABD5-F965DB04B6E7}"
 EndProject
