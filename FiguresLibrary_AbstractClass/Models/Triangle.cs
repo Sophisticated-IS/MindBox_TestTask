@@ -40,8 +40,8 @@ public sealed class Triangle : Shape
         //если гипотенуза НЕ больше каждого из катетов, то это не прямоугольный треугольник
         if (!(hypotenuse > sides[1]) || !(hypotenuse > sides[0])) return false;
         
-        var cathetusSum = sides[0] + sides[1];
-        var isOrthogonal = Math.Abs(Math.Pow(hypotenuse, 2) - cathetusSum) < double.Epsilon;
+        var cathetusPowerSum = Math.Pow(sides[0],2) + Math.Pow(sides[1],2);
+        var isOrthogonal = Math.Abs(Math.Pow(hypotenuse, 2) - cathetusPowerSum) < double.Epsilon;
         return isOrthogonal;
     } 
 }
