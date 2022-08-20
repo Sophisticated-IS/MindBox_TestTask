@@ -24,4 +24,24 @@ public sealed class Triangle : Shape
         var square = Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c));
         return square;
     }
+    
+    /// <summary>
+    /// Проверяет является ли треугольник прямоугольным
+    /// </summary>
+    /// <returns></returns>
+    public bool IsOrthogonal()
+    {
+        Span<double> sides = stackalloc double[3]
+        {
+            _a, _b, _c
+        };
+        sides.Sort();
+        var hypotenuse = sides[2];
+        //если гипотенуза НЕ больше каждого из катетов, то это не прямоугольный треугольник
+        if (!(hypotenuse > sides[1]) || !(hypotenuse > sides[0])) return false;
+        
+        var cathetusSum = sides[0] + sides[1];
+        var isOrthogonal = Math.Abs(Math.Pow(hypotenuse, 2) - cathetusSum) < double.Epsilon;
+        return isOrthogonal;
+    } 
 }
