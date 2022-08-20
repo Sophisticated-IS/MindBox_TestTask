@@ -7,5 +7,12 @@ public abstract class Shape
     /// </summary>
     /// <returns>площадь фигуры</returns>
     public abstract double CalculateSquare();
-    
+
+    /// <summary>
+    /// Конструктор
+    /// </summary>
+    internal Shape()
+    {
+        
+    }
 }
