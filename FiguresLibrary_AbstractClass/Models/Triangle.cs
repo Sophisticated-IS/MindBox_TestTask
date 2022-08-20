@@ -1,6 +1,6 @@
-﻿using FiguresLibrary.Base;
+﻿using FiguresLibrary.Models.Base;
 
-namespace FiguresLibrary;
+namespace FiguresLibrary.Models;
 
 public sealed class Triangle : Shape
 {

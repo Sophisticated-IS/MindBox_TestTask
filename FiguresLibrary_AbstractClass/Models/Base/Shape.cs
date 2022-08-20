@@ -1,4 +1,4 @@
-﻿namespace FiguresLibrary.Base;
+﻿namespace FiguresLibrary.Models.Base;
 
 public abstract class Shape
 {
