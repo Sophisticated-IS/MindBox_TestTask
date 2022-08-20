@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\FiguresLibrary_AbstractClass\FiguresLibrary_AbstractClass.csproj" />
+      <ProjectReference Include="..\FiguresLibrary\FiguresLibrary.csproj" />
     </ItemGroup>
 
 </Project>
