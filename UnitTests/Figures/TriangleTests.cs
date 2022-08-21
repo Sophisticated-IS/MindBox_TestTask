@@ -30,4 +30,30 @@ public sealed class TriangleTests
         //Assert
         Assert.Equal(expected,actual,Math.Pow(10,-6));
     }
+    
+    [Fact]
+    public void TestCalculateIsOrthogonal()
+    {
+        //Arrange
+        const double sideA = 3;
+        const double sideB = 4;
+        const double sideC = 5;
+        const bool expected = true;
+
+        //Act
+        var circle = new Triangle()
+        {
+            Arguments = new[]
+            {
+                sideA,
+                sideB,
+                sideC
+            }
+        };
+        circle.MapArguments();
+        var actual = circle.IsOrthogonal();
+
+        //Assert
+        Assert.Equal(expected,actual);
+    }
 }
