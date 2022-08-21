@@ -44,4 +44,27 @@ public sealed class CircleTests
         //Assert
         Assert.Throws<ArgumentOutOfRangeException>(()=>circle.MapArguments());
     }
+    
+    [Theory]
+    [InlineData(double.NaN)]
+    [InlineData(double.PositiveInfinity)]
+    [InlineData(double.MaxValue)]
+    public void NotNumbersArguments_ThrowsException(double radius)
+    {
+        //Arrange
+        
+        
+        //Act
+        var circle = new Circle()
+        {
+            Arguments = new[]
+            {
+                radius
+            }
+        };
+        circle.MapArguments();
+            
+        //Assert
+        Assert.Throws<ArithmeticException>(()=>circle.CalculateSquare());
+    }
 }

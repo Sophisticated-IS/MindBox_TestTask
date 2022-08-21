@@ -77,5 +77,33 @@ public sealed class TriangleTests
         //Assert
         Assert.Throws<ArgumentOutOfRangeException>(()=>circle.MapArguments());
     }
+    
+    [Theory]
+    [InlineData(double.NaN,1,1)]
+    [InlineData(1,double.NaN,1)]
+    [InlineData(1,1,double.NaN)]
+    [InlineData(double.PositiveInfinity,1,3)]
+    [InlineData(double.MaxValue,1,3)]
+    [InlineData(double.MaxValue,double.MaxValue,double.MaxValue)]
+    public void NotNumbersArguments_ThrowsException(double sideA,double sideB,double sideC)
+    {
+        //Arrange
+
+        //Act
+        var triangle = new Triangle()
+        {
+            Arguments = new[]
+            {
+                sideA,
+                sideB,
+                sideC
+            }
+        };
+        triangle.MapArguments();
+
+        //Assert
+        Assert.Throws<ArithmeticException>(()=>triangle.CalculateSquare());
+    }
+
 
 }
