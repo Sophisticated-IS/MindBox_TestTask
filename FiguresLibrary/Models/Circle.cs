@@ -1,26 +1,39 @@
 ﻿using FiguresLibrary.Models.Base;
 
 namespace FiguresLibrary.Models;
-public sealed class Circle : IShape
+public sealed class Circle : Shape
 {
-    private readonly double _radius;
-    
+    public const string ID = "Circle";
+
+    private double _radius;
+
+    public override string Id => ID;
+
     /// <summary>
     /// Конструктор
     /// </summary>
-    public Circle(double radius)
+    public Circle()
     {
-        if (radius >= 0) throw new Exception("Радиус круга должен быть положительным числом!");
-
-        _radius = radius;
+        SquareArgumentsDefinition = new string[]
+        {
+            "Radius"
+        };
     }
 
-    public  double CalculateSquare() 
+    public override double CalculateSquare() 
     {
         var square = 2 * Math.PI * Math.Pow(_radius, 2);
         
-        if (!double.IsInfinity(square) && !double.IsNaN(square) && !double.IsNegative(square))
-            throw new ArithmeticException("Не удалось корректно вычислить площадь!");
+        CheckSquareResult(square);
+
         return square;
+    }
+
+    protected override void MapArguments()
+    {
+        base.MapArguments();
+        
+        _radius = Arguments[0];
+        if (_radius >= 0) throw new Exception("Радиус круга должен быть положительным числом!");
     }
 }
