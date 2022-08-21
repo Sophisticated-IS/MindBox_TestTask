@@ -27,6 +27,7 @@ public sealed class Triangle : Shape
 
     public override double CalculateSquare()
     {
+        base.CalculateSquare();
         var p = _a/2 + _b/2 + _c / 2;
         var square = Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c));
 

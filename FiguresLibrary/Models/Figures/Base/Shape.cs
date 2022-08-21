@@ -5,6 +5,8 @@
 /// </summary>
 public abstract class Shape
 {
+    private bool _wasMapArgumentsCalled;
+    
     /// <summary>
     /// Уникальный идентификатор фигуры
     /// </summary>
@@ -34,7 +36,15 @@ public abstract class Shape
     /// </summary>
     /// <returns>площадь фигуры</returns>
     /// <exception cref="ArithmeticException">не удалось корректно вычислить площадь фигуры</exception>
-    public abstract double CalculateSquare();
+    /// <exception cref="InvalidOperationException"> Не был вызван метод MapArguments ля сопоставления аргументов</exception>
+    public virtual double CalculateSquare()
+    {
+        if (!_wasMapArgumentsCalled)
+            throw new InvalidOperationException(
+                $"Arguments weren't mapped! Call method {nameof(MapArguments)} before calculations!");
+
+        return 0;
+    }
 
     /// <summary>
     /// Проверка результата вычисления
@@ -73,5 +83,7 @@ public abstract class Shape
                     $"Expected argument <{SquareArgumentsDefinition[i]}> was less than zero!");
             }
         }
+
+        _wasMapArgumentsCalled = true;
     }
 }

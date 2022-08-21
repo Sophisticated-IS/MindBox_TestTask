@@ -20,12 +20,13 @@ public sealed class Circle : Shape
         };
     }
 
-    public override double CalculateSquare() 
+    public override double CalculateSquare()
     {
+        base.CalculateSquare();
+        
         var square = Math.PI * Math.Pow(_radius, 2);
         
         CheckSquareResult(square);
-
         return square;
     }
 
