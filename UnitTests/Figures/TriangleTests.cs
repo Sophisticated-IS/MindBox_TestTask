@@ -5,14 +5,12 @@ namespace UnitTests.Figures;
 
 public sealed class TriangleTests
 {
-    [Fact]
-    public void TestCalculateSquare()
+    [Theory]
+    [InlineData(3,4,5,6)]
+    [InlineData(0,0,0,0)]
+    public void ShouldCalculateSquare(double sideA,double sideB,double sideC,double expected)
     {
         //Arrange
-        const double sideA = 3;
-        const double sideB = 4;
-        const double sideC = 5;
-        const double expected = 6;
 
         //Act
         var circle = new Triangle()
