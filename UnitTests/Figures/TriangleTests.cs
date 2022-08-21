@@ -13,7 +13,7 @@ public sealed class TriangleTests
         //Arrange
 
         //Act
-        var circle = new Triangle()
+        var triangle = new Triangle()
         {
             Arguments = new[]
             {
@@ -22,8 +22,8 @@ public sealed class TriangleTests
                 sideC
             }
         };
-        circle.MapArguments();
-        var actual = circle.CalculateSquare();
+        triangle.MapArguments();
+        var actual = triangle.CalculateSquare();
 
         //Assert
         Assert.Equal(expected,actual,Math.Pow(10,-6));
@@ -39,7 +39,7 @@ public sealed class TriangleTests
         //Arrange
 
         //Act
-        var circle = new Triangle()
+        var triangle = new Triangle()
         {
             Arguments = new[]
             {
@@ -48,8 +48,8 @@ public sealed class TriangleTests
                 sideC
             }
         };
-        circle.MapArguments();
-        var actual = circle.IsOrthogonal();
+        triangle.MapArguments();
+        var actual = triangle.IsOrthogonal();
 
         //Assert
         Assert.Equal(expected,actual);
@@ -64,7 +64,7 @@ public sealed class TriangleTests
         //Arrange
 
         //Act
-        var circle = new Triangle()
+        var triangle = new Triangle()
         {
             Arguments = new[]
             {
@@ -75,7 +75,7 @@ public sealed class TriangleTests
         };
 
         //Assert
-        Assert.Throws<ArgumentOutOfRangeException>(()=>circle.MapArguments());
+        Assert.Throws<ArgumentOutOfRangeException>(()=>triangle.MapArguments());
     }
     
     [Theory]

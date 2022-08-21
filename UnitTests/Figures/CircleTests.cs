@@ -33,7 +33,7 @@ public sealed class CircleTests
         //Arrange
         const double radius = -1;
         //Act
-        var circle = new Triangle()
+        var circle = new Circle()
         {
             Arguments = new[]
             {
