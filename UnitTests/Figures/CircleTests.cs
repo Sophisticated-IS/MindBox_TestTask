@@ -26,4 +26,22 @@ public sealed class CircleTests
         //Assert
         Assert.Equal(expected,actual,Math.Pow(10,-6));
     }
+    
+    [Fact]
+    public void Add_NegativeArguments_ThrowsException()
+    {
+        //Arrange
+        const double radius = -1;
+        //Act
+        var circle = new Triangle()
+        {
+            Arguments = new[]
+            {
+              radius
+            }
+        };
+
+        //Assert
+        Assert.Throws<ArgumentOutOfRangeException>(()=>circle.MapArguments());
+    }
 }

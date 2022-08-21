@@ -56,4 +56,28 @@ public sealed class TriangleTests
         //Assert
         Assert.Equal(expected,actual);
     }
+    
+    [Theory]
+    [InlineData(-1,1,1)]
+    [InlineData(1,-1,1)]
+    [InlineData(1,1,-1)]
+    public void Add_NegativeArguments_ThrowsException(double sideA,double sideB,double sideC)
+    {
+        //Arrange
+
+        //Act
+        var circle = new Triangle()
+        {
+            Arguments = new[]
+            {
+                sideA,
+                sideB,
+                sideC
+            }
+        };
+
+        //Assert
+        Assert.Throws<ArgumentOutOfRangeException>(()=>circle.MapArguments());
+    }
+
 }
