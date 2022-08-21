@@ -31,14 +31,14 @@ public sealed class TriangleTests
         Assert.Equal(expected,actual,Math.Pow(10,-6));
     }
     
-    [Fact]
-    public void TestCalculateIsOrthogonal()
+    [Theory]
+    [InlineData(1,1,1,false)]
+    [InlineData(3,4,5,true)]
+    [InlineData(9,9,1,false)]
+    [InlineData(0,0,0,false)]
+    public void ShouldCalculateIsOrthogonal(double sideA,double sideB,double sideC,bool expected)
     {
         //Arrange
-        const double sideA = 3;
-        const double sideB = 4;
-        const double sideC = 5;
-        const bool expected = true;
 
         //Act
         var circle = new Triangle()
