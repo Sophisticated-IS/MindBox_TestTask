@@ -1,6 +1,6 @@
-﻿using FiguresLibrary.Models.Base;
+﻿using FiguresLibrary.Models.Figures.Base;
 
-namespace FiguresLibrary.Models;
+namespace FiguresLibrary.Models.Figures;
 public sealed class Circle : Shape
 {
     public const string ID = "Circle";

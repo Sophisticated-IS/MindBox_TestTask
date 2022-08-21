@@ -1,7 +1,7 @@
-﻿using FiguresLibrary.Models;
-using FiguresLibrary.Models.Base;
+﻿using FiguresLibrary.Models.Figures;
+using FiguresLibrary.Models.Figures.Base;
 
-namespace FiguresLibrary;
+namespace FiguresLibrary.Models;
 
 public sealed class FigureFactory
 {

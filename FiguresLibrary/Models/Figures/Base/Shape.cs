@@ -1,4 +1,4 @@
-﻿namespace FiguresLibrary.Models.Base;
+﻿namespace FiguresLibrary.Models.Figures.Base;
 
 /// <summary>
 /// Базовый интерфейс фигуры

@@ -1,6 +1,6 @@
-﻿using FiguresLibrary;
-using FiguresLibrary.Models;
-using FiguresLibrary.Models.Base;
+﻿using FiguresLibrary.Models;
+using FiguresLibrary.Models.Figures;
+using FiguresLibrary.Models.Figures.Base;
 
 START_MENU:
 PrintMenu();
