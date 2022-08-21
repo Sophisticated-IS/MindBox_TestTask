@@ -1,0 +1,3 @@
+﻿Select distinct p.name,C.name from "Products" AS p
+left join "Product_Category" PC on P.id = PC."Product_id"
+left join "Categories" C on C.id = PC."Category_id";
