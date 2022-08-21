@@ -1,72 +1,57 @@
-﻿using FiguresLibrary.Models;
+﻿using FiguresLibrary;
+using FiguresLibrary.Models;
 using FiguresLibrary.Models.Base;
-
 
 START_MENU:
 PrintMenu();
-var userInput = Console.ReadKey();
+var inputFigure = Console.ReadLine();
+if (string.IsNullOrEmpty(inputFigure)) goto START_MENU;
+
 try
 {
-    double[]? parameters;
-    IShape shape;
-    switch (userInput.Key)
-    {
-        case ConsoleKey.D1:
-            if (!TryGetParams(1, out parameters))
-                goto START_MENU;
-            shape = new Circle(parameters[0]);
-            Console.WriteLine("Площадь:" + shape.CalculateSquare());
-            goto START_MENU;
-
-
-        case ConsoleKey.D2:
-            if (!TryGetParams(3, out parameters))
-                goto START_MENU;
-            var triangle = new Triangle(parameters[0], parameters[1], parameters[2]);
-            shape = triangle;
-            Console.WriteLine("Площадь:" + shape.CalculateSquare());
-            Console.WriteLine("Треугольник прямоугольный?" + triangle.IsOrthogonal());
-            goto START_MENU;
-            
-        case ConsoleKey.D3:
-            break;
-        
-        default: goto START_MENU;
-    }
+    var factory = new FigureFactory();
+    Shape createdFigure  = factory.CreateFigure(inputFigure);
+    Console.WriteLine("Введите следующие аргументы:");
+    createdFigure.Arguments = InputArguments(createdFigure.SquareArgumentsDefinition);
+    // createdFigure.try
+    Console.WriteLine("Площадь =" + createdFigure.CalculateSquare());
 }
 catch (Exception exception)
 {
-    Console.WriteLine("Возникла ошибка при  вычислениях:");
+    Console.WriteLine("Возникла ошибка при вычислениях:");
     Console.WriteLine(exception);
     goto START_MENU;
 }
-
 
 void PrintMenu()
 {
     Console.WriteLine();
     Console.WriteLine(
         "Меню калькулятора площади фигур:\n" +
-        "1 - Круг\n" +
-        "2 - Треугольник\n" +
-        "3 - выход");
+        $"{Circle.ID} - Круг\n" +
+        $"{Triangle.ID} - Треугольник");
 }
 
-bool TryGetParams(int count, out double[]? parameters)
+double[] InputArguments(string[] arguments)
 {
-    parameters = null;
-    try
+    double[] resultArgs = new double[arguments.Length];
+    for (int i = 0; i < arguments.Length; i++)
     {
+        ARGUMENT_INPUT:
+        Console.Write($"Введите аргумент <{arguments[i]}>");
+        var strArgument = Console.ReadLine();
+        if (double.TryParse(strArgument, out var parsedArg))
+        {
+            resultArgs[i] = parsedArg;
+        }
+        else
+        {
+            Console.WriteLine("Возникла ошибка при вводе аргумента!\n" +
+                              "Введите аргумент занова!");
+            goto ARGUMENT_INPUT;
+        }
         Console.WriteLine();
-        Console.WriteLine($"Введите {count} параметра через запятую:");
-        var strParams = Console.ReadLine();
-        parameters = strParams?.Split(',').Select(double.Parse).ToArray();
-        return parameters != null && parameters.Length == count;
     }
-    catch (Exception exception)
-    {
-        Console.WriteLine("Возникла ошибка при вводе параметров:");
-        Console.WriteLine(exception);
-        return false;
-    }
+
+    return resultArgs;
 }
