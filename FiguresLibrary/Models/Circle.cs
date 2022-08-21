@@ -29,11 +29,11 @@ public sealed class Circle : Shape
         return square;
     }
 
-    protected override void MapArguments()
+    public override void MapArguments()
     {
         base.MapArguments();
         
         _radius = Arguments[0];
-        if (_radius >= 0) throw new Exception("Радиус круга должен быть положительным числом!");
+        if (_radius < 0) throw new Exception("Радиус круга должен быть положительным числом!");
     }
 }

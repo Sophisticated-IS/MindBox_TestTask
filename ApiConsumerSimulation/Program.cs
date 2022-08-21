@@ -13,8 +13,11 @@ try
     Shape createdFigure  = factory.CreateFigure(inputFigure);
     Console.WriteLine("Введите следующие аргументы:");
     createdFigure.Arguments = InputArguments(createdFigure.SquareArgumentsDefinition);
-    // createdFigure.try
-    Console.WriteLine("Площадь =" + createdFigure.CalculateSquare());
+    createdFigure.MapArguments();
+    Console.WriteLine("Площадь = " + createdFigure.CalculateSquare());
+    
+    if (createdFigure is Triangle triangle) CheckOrthogonal(triangle);
+    Console.WriteLine("GoodBye!!!");
 }
 catch (Exception exception)
 {
@@ -50,8 +53,17 @@ double[] InputArguments(string[] arguments)
                               "Введите аргумент занова!");
             goto ARGUMENT_INPUT;
         }
-        Console.WriteLine();
     }
 
     return resultArgs;
+}
+
+void CheckOrthogonal(Triangle triangle)
+{
+    Console.WriteLine("Хотите проверить прямоугольный ли треугольник? (y/n)");
+    var input = Console.ReadLine();
+    if (input == "y")
+    {
+        Console.Write($"Answer:{triangle.IsOrthogonal()}");
+    }
 }

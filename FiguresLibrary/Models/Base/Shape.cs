@@ -49,9 +49,9 @@ public abstract class Shape
     }
 
     /// <summary>
-    /// проверяет аргументы и сопоставляет их с ожидаеыми аргументами, описанными в SquareArgumentsDefinition
+    /// Проверяет аргументы и сопоставляет их с ожидаемыми аргументами, описанными в SquareArgumentsDefinition
     /// </summary>
-    protected virtual void MapArguments()
+    public virtual void MapArguments()
     {
         if (Arguments is null) throw new NullReferenceException(nameof(Arguments));
         
