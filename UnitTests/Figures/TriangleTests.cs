@@ -34,6 +34,10 @@ public sealed class TriangleTests
     [InlineData(3,4,5,true)]
     [InlineData(9,9,1,false)]
     [InlineData(0,0,0,false)]
+    [InlineData(double.MaxValue,0,0,false)]
+    [InlineData(double.PositiveInfinity,0,0,false)]
+    [InlineData(double.NaN,0,0,false)]
+    [InlineData(double.NaN,double.MaxValue,double.PositiveInfinity,false)]
     public void ShouldCalculateIsOrthogonal(double sideA,double sideB,double sideC,bool expected)
     {
         //Arrange
