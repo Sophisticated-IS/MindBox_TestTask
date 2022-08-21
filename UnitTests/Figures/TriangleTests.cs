@@ -108,6 +108,25 @@ public sealed class TriangleTests
         //Assert
         Assert.Throws<ArithmeticException>(()=>triangle.CalculateSquare());
     }
+    
+    [Theory]
+    [InlineData(new double[] { 1d, 2d, 3d,4d })]
+    [InlineData(new double[] { 1d})]
+    public void InvalidArgumentsAmount_ThrowsException(double[] arguments)
+    {
+        //Arrange
 
+        //Act
+        var triangle = new Triangle()
+        {
+            Arguments = arguments.ToArray()
+        };
+        
+
+        //Assert
+        Assert.Throws<ArgumentOutOfRangeException>(()=>triangle.MapArguments());
+    }
+    
+  
 
 }

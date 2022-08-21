@@ -67,4 +67,22 @@ public sealed class CircleTests
         //Assert
         Assert.Throws<ArithmeticException>(()=>circle.CalculateSquare());
     }
+    
+    [Theory]
+    [InlineData(new double[] { 1d, 2d })]
+    [InlineData(new double[] { })]
+    public void InvalidArgumentsAmount_ThrowsException(double[] arguments)
+    {
+        //Arrange
+        
+        
+        //Act
+        var circle = new Circle()
+        {
+            Arguments = arguments
+        };
+
+        //Assert
+        Assert.Throws<ArgumentOutOfRangeException>(()=>circle.MapArguments());
+    }
 }
