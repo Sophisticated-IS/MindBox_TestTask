@@ -34,6 +34,5 @@ public sealed class Circle : Shape
         base.MapArguments();
         
         _radius = Arguments[0];
-        if (_radius < 0) throw new Exception("Радиус круга должен быть положительным числом!");
     }
 }

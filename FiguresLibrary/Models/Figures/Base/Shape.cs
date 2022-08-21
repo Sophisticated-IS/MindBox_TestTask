@@ -33,7 +33,7 @@ public abstract class Shape
     /// Вычисление площади фигуры
     /// </summary>
     /// <returns>площадь фигуры</returns>
-    /// <exception cref="ArithmeticException">не удалось получить вычислить площадь</exception>
+    /// <exception cref="ArithmeticException">не удалось корректно вычислить площадь фигуры</exception>
     public abstract double CalculateSquare();
 
     /// <summary>
@@ -51,6 +51,8 @@ public abstract class Shape
     /// <summary>
     /// Проверяет аргументы и сопоставляет их с ожидаемыми аргументами, описанными в SquareArgumentsDefinition
     /// </summary>
+    /// <exception cref="NullReferenceException">Была передана ссылка null</exception>
+    /// <exception cref="ArgumentOutOfRangeException">Количество переданных аргументов, не совпало с необходимым или один из аргументов был меньше нуля</exception>
     public virtual void MapArguments()
     {
         if (Arguments is null) throw new NullReferenceException(nameof(Arguments));
@@ -60,6 +62,16 @@ public abstract class Shape
             throw new ArgumentOutOfRangeException(nameof(SquareArgumentsDefinition),
                 $"Expected {SquareArgumentsDefinition.Length} parameters instead of {Arguments.Length} " +
                 $"in function {nameof(CalculateSquare)}");
+        }
+
+        for (var i = 0; i < Arguments.Length; i++)
+        {
+            var argument = Arguments[i];
+            if (argument < 0)
+            {
+                throw new ArgumentOutOfRangeException(
+                    $"Wxpected argument <{SquareArgumentsDefinition[i]}> was less than zero!");
+            }
         }
     }
 }

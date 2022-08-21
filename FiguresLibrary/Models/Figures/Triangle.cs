@@ -42,7 +42,6 @@ public sealed class Triangle : Shape
         _a = Arguments[0];
         _b = Arguments[1];
         _c = Arguments[2];
-        if (!(_a>0 && _b>0 && _c>0)) throw new Exception("Стороны треугольника должны быть больше нуля!");
     }
 
     /// <summary>
