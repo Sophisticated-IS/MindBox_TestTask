@@ -1,6 +1,5 @@
 ﻿using FiguresLibrary.Models;
 using FiguresLibrary.Models.Figures;
-using FiguresLibrary.Models.Figures.Base;
 
 START_MENU:
 PrintMenu();
@@ -10,7 +9,7 @@ if (string.IsNullOrEmpty(inputFigure)) goto START_MENU;
 try
 {
     var factory = new FigureFactory();
-    Shape createdFigure  = factory.CreateFigure(inputFigure);
+    var createdFigure  = factory.CreateFigure(inputFigure);
     Console.WriteLine("Введите следующие аргументы:");
     createdFigure.Arguments = InputArguments(createdFigure.SquareArgumentsDefinition);
     createdFigure.MapArguments();
@@ -37,8 +36,8 @@ void PrintMenu()
 
 double[] InputArguments(string[] arguments)
 {
-    double[] resultArgs = new double[arguments.Length];
-    for (int i = 0; i < arguments.Length; i++)
+    var resultArgs = new double[arguments.Length];
+    for (var i = 0; i < arguments.Length; i++)
     {
         ARGUMENT_INPUT:
         Console.Write($"Введите аргумент <{arguments[i]}>");
