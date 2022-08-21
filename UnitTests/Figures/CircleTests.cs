@@ -24,6 +24,6 @@ public sealed class CircleTests
         var actual = circle.CalculateSquare();
 
         //Assert
-        Assert.Equal(expected,actual);
+        Assert.Equal(expected,actual,Math.Pow(10,-6));
     }
 }
