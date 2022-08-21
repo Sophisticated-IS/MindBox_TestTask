@@ -6,7 +6,7 @@
 public abstract class Shape
 {
     /// <summary>
-    /// Уникальный иднтификатор фигуры
+    /// Уникальный идентификатор фигуры
     /// </summary>
     public abstract string Id { get; }
 
@@ -70,7 +70,7 @@ public abstract class Shape
             if (argument < 0)
             {
                 throw new ArgumentOutOfRangeException(
-                    $"Wxpected argument <{SquareArgumentsDefinition[i]}> was less than zero!");
+                    $"Expected argument <{SquareArgumentsDefinition[i]}> was less than zero!");
             }
         }
     }
