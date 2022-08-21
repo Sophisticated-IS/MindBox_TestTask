@@ -22,7 +22,7 @@ public sealed class Circle : Shape
 
     public override double CalculateSquare() 
     {
-        var square = 2 * Math.PI * Math.Pow(_radius, 2);
+        var square = Math.PI * Math.Pow(_radius, 2);
         
         CheckSquareResult(square);
 
